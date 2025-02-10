@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Rental</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1;
+        padding: 1;
+        background-color: #f5f5f5;
+      }
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 0.5rem;
+        text-align: 5px;
+      }
+      nav {
+        background: #081f95;
+        color: rgb(210, 150, 150);
+        display: flex;
+        justify-content: space-around;
+        padding: 0.5rem;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 3rem;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .container {
+        max-width: 12000px;
+        margin: 4rem auto;
+        padding: 1rem;
+        background: white;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      .property-list,
+      .form-section {
+        margin: 4rem 0;
+      }
+
+      footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 2.5rem 0;
+        margin-top: 2rem;
+      }
+      .btn {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 1.5rem 3rem;
+        text-transform: uppercase;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background-color: #45a049;
+      }
+      .form-group {
+        margin-bottom: 2rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 1.5rem;
+      }
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 90%;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .upload-section {
+        margin: 4rem 0;
+      }
+      .upload-section h2 {
+        margin-bottom: 2rem;
+      }
+      .upload-section .form-group {
+        margin-bottom: 2rem;
+      }
+      .upload-section input[type="file"] {
+        padding: 1rem;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        width: 40%;
+      }
+
+      .photo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .property-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+        max-width: 1200px;
+      }
+
+      .property {
+        flex: 1;
+        min-width: 300px;
+        max-width: 300px;
+        background-color: rgb(235, 235, 135);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      .property img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .logo {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        width: 80px;
+        height: auto;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .communication {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+      .form-section {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+        max-width: 1200px;
+      }
+      .upload-section {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+        max-width: 1200px;
+      }
+      .form-section {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+        max-width: 1200px;
+      }
+      .form-group {
+        flex: 1;
+        min-width: 1000px;
+        max-width: 1000px;
+        background-color: hwb(120 2% 13% / 0.338);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      .property img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="text-2xl font-bold text-blue-600">
+        <a>
+          <img
+            class="logo"
+            src="C:\Users\Pacifique\Desktop\GREEN PROJECT\Image project\Logo.jpeg"
+          />
+        </a>
+        <h1>House rental company</h1>
+      </div>
+      <div class="flex-1 mx-4">
+        <form action="/search" method="GET" class="flex">
+          <input
+            type="text"
+            name="q"
+            placeholder="Search products..."
+            class="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            type="submit"
+            class="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700"
+          >
+            Search
+          </button>
+        </form>
+      </div>
+      <h3><p>Connecting Rental House to clients</p></h3>
+    </header>
+    <nav>
+      <a href="#listings">Available Rentals</a>
+      <a href="#list-your-choice">List your Choice</a>
+      <a href="#upload-media">Upload Media</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+
+    <div class="container">
+      <div class="photo">
+        <section id="listings" class="property-list">
+            <div class="header">
+                <h2>
+                  Look and Create choice for the following Available Rentals
+                </h2>
+            </div>
+          <div class="property">
+            <img
+              src="C:\Users\Pacifique\Desktop\GREEN PROJECT\Image project\2 bed room appartment.jpeg"
+              alt="3 bed room appartment"
+            />
+            <h3>2-Bedroom Apartment in Downtown</h3>
+            <p>Price: $1,000/month</p>
+            <p>
+              Description: A beautiful apartment located in the heart of the
+              city. Close to amenities and public transport.
+            </p>
+          </div>
+          <div class="property">
+            <img
+              src="C:\Users\Pacifique\Desktop\GREEN PROJECT\Image project\3 bed room appartment.jpeg"
+              alt="3 bed room appartment"
+            />
+            <h3>3-Bedroom Family Home</h3>
+            <p>Price: $1,500/month</p>
+            <p>
+              Description: Spacious home in a quiet neighborhood. Perfect for
+              families.
+            </p>
+          </div>
+          <div class="property">
+            <img
+              src="C:\Users\Pacifique\Desktop\GREEN PROJECT\Image project\rental appartment.jpeg"
+              alt="Full House with 4 bed room appartment"
+            />
+            <h3>4-Bedroom Family Home</h3>
+            <p>Price: $2,000/month</p>
+            <p>
+              Description: Spacious home in a quiet neighborhood. Excellent for
+              large families .
+            </p>
+          </div>
+        </section>
+      </div>
+      <div class="communication">
+        <section id="listings" class="property-list">
+          <div>
+            <section id="list-property" class="form-section">
+              <h2>List Your Choice Please!</h2>
+              <form>
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Your Email</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="property-title">Property Title</label>
+                  <input
+                    type="text"
+                    id="property-title"
+                    name="property-title"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="price">Rental Price ($/month)</label>
+                  <input type="number" id="price" name="price" required />
+                </div>
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea
+                    id="description"
+                    name="description"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+              </form>
+            </section>
+          </div>
+
+          <div>
+            <section id="upload-media" class="upload-section">
+              <h2>Views of our Appartment</h2>
+              <form>
+                <div class="form-group">
+                  <label for="house-image">Upload House Image</label>
+                  <input
+                    type="file"
+                    id="house-image"
+                    name="house-image"
+                    accept="image/*"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="house-video">Upload Short Video</label>
+                  <input
+                    type="file"
+                    id="house-video"
+                    name="house-video"
+                    accept="video/*"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn">Upload</button>
+              </form>
+            </section>
+          </div>
+
+          <div>
+            <section id="contact" class="form-section">
+              <h2>Contact Us</h2>
+              <form>
+                <div class="form-group">
+                  <label for="client-name">Your Name</label>
+                  <input
+                    type="text"
+                    id="client-name"
+                    name="client-name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="client-email">Your Email</label>
+                  <input
+                    type="email"
+                    id="client-email"
+                    name="client-email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn">Send</button>
+              </form>
+            </section>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 House Rental. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
